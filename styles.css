@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.notification-bar {
+  background-color: white;
+  color: #1a1a1a;
+  text-align: center;
+  padding: 8px 0;
+  font-weight: bold;
+}
+
+#map {
+  position: absolute;
+  top: 40px; /* Adjust this value to make space for the bar */
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.fading-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1; /* Set the z-index for the fading images */
+}
