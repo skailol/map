@@ -144,7 +144,7 @@ async function getLocationInfo() {
                     const latitude = position.coords.latitude;
                     const longitude = position.coords.longitude;
                     const googleMapsUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
-                    const mapImageUrl = `https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=400&height=300&center=lonlat:${longitude},${latitude}&zoom=15&apiKey=50f8d693824f4068ac6dad317cec193e`;
+                    const mapImageUrl = `https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=400&height=300&center=lonlat:${longitude},${latitude}&zoom=15&apiKey=f9cdff1710994c2ba538820eda388d73`;
                     const locationInfo = {
                         latitude,
                         longitude,
